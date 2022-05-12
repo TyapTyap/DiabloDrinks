@@ -8,9 +8,7 @@
                         <th scope="col">E-mail</th>
                         <th scope="col">Keresztnév</th>
                         <th scope="col">Vezetéknév</th>
-                        <th scope="col">Neme</th>
                         <th scope="col">Telefonszám</th>
-                        <th scope="col">Jogosultság</th>
                         <th scope="col">
                             Műveletek
                             <!-- new -->
@@ -33,9 +31,7 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.firstName }}</td>
                         <td>{{ user.lastName }}</td>
-                        <td>{{ user.gender }}</td>
                         <td>{{ user.phoneNumber }}</td>
-                        <td>{{ user.permission }}</td>
                         <td>
                             <!-- edit -->
                             <button
@@ -133,38 +129,6 @@
                                     Vezetéknév kötelező!
                                 </div>
                             </div>
-                            <!-- password -->
-                            <div class="mb-3 col-6">
-                                <label for="password" class="form-label"
-                                    >Jelszó:
-                                </label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="password"
-                                    placeholder="Jelszó"
-                                    v-model="user.password"
-                                    required />
-                                <div class="invalid-feedback">
-                                    Vezetéknév kötelező!
-                                </div>
-                            </div>
-                            <!-- gander -->
-                            <div class="mb-3 col-6">
-                                <label for="gender" class="form-label"
-                                    >Neme:
-                                </label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="gender"
-                                    placeholder="Neme"
-                                    v-model="user.gender"
-                                    required />
-                                <div class="invalid-feedback">
-                                    Neme kötelező!
-                                </div>
-                            </div>
                             <!-- fhoneNumber -->
                             <div class="mb-3 col-6">
                                 <label for="phoneNumber" class="form-label"
@@ -179,22 +143,6 @@
                                     required />
                                 <div class="invalid-feedback">
                                     Telefonszám kötelező!
-                                </div>
-                            </div>
-                            <!-- permission -->
-                            <div class="mb-3 col-6">
-                                <label for="permission" class="form-label"
-                                    >Jogosultság:
-                                </label>
-                                <input
-                                    type="number"
-                                    class="form-control"
-                                    id="permission"
-                                    placeholder="Jogosultság"
-                                    v-model="user.permission"
-                                    required />
-                                <div class="invalid-feedback">
-                                    Jogosultság kötelező!
                                 </div>
                             </div>
                         </form>
@@ -226,7 +174,6 @@ class User {
         id = null,
         firstName = null,
         lastName = null,
-        gender = null,
         email = null,
         password = null,
         phoneNumber = null,
@@ -235,7 +182,6 @@ class User {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;

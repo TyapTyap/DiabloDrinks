@@ -176,7 +176,7 @@
                                     >Regisztráció</router-link
                                 >
                             </li>
-                            <li class="nav-item dropdown" v-if="loggedIn() && onClickAdminPermission()">
+                            <li class="nav-item dropdown" v-if="loggedIn()">
                                 <a
                                     class="nav-link dropdown-toggle text-light"
                                     href="#"
@@ -257,7 +257,6 @@ class User {
     constructor(
         firstName = null,
         lastName = null,
-        gender = null,
         email = null,
         password = null,
         phoneNumber = null,
@@ -265,7 +264,6 @@ class User {
     ) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
@@ -282,11 +280,6 @@ export default {
         onClicklogout() {
             this.$root.$data.token = null;
             this.$root.$data.user = new User();
-        },onClickAdminPermission(){
-            Boolean(this.$root.$data.permission)
-            if (!this.permission == 1) {
-                return false;
-            }
         }
     },
 };

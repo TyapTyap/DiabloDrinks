@@ -11,7 +11,4 @@ export default {
 </script>
 
 <style>
-*{
-  background: url();
-}
 </style>

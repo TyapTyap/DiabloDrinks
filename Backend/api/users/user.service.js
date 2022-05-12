@@ -10,7 +10,7 @@ module.exports = {
         let queryString = `INSERT INTO user
         (firstName,lastName,email,password,phoneNumber,permission)
         VALUES
-        (?,?,?,?,?,0)
+        (?,?,?,?,?,1)
         `
         // let params = Object.values(data);
         let params= [
@@ -31,9 +31,9 @@ module.exports = {
     },
     createCategory: (data, callBack) => {
         let queryString = `INSERT INTO category
-        (id,CategoryName)
+        (CategoryName)
         VALUES
-        (?,?)
+        (?)
         `
         let params = Object.values(data);
         pool.query(queryString, params, (error, results, fields) => {
@@ -50,7 +50,14 @@ module.exports = {
           VALUES
           (?,?,?,?,?,?)
         `
-        let params = Object.values(data);
+        let params = [
+            data.categoryesId,
+            data.itemName,
+            data.image,
+            data.unit,
+            data.alcoholcontent,
+            data.brand
+        ]
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
                 return callBack(error);
@@ -65,7 +72,11 @@ module.exports = {
         VALUES
         (?,?,?)
         `
-        let params = Object.values(data);
+        let params = [
+            data.itemId,
+            data.Date,
+            data.price
+        ]
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
                 return callBack(error);
@@ -80,7 +91,12 @@ module.exports = {
         VALUES
         (?,?,?,?)
         `
-        let params = Object.values(data);
+        let params = [
+            data.userId,
+            data.comment,
+            data.rating,
+            data.itemId
+        ]
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
                 return callBack(error);

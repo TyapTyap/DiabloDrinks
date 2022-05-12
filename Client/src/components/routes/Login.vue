@@ -39,7 +39,7 @@ export default {
         return {
             loginData: {
                 email: "admin@gmail.com",
-                password: "admin123456789",
+                password: "admin",
             },
             noSuccess: false,
         };

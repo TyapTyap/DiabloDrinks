@@ -5,7 +5,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Azonosító</th>
                         <th scope="col">Kategória név</th>
                         <th scope="col">
                             Műveletek
@@ -26,7 +25,6 @@
                         class="static"
                         @click="onClickRow(category.id)"
                         :class="{ 'bg-primary': category.id == isValid }">
-                        <td>{{ category.id }}</td>
                         <td>{{ category.CategoryName }}</td>
                         <td>
                             <!-- edit -->
@@ -77,22 +75,6 @@
                     <div class="modal-body">
                         <form class="row g-3 needs-validation" novalidate>
                             <!-- űrlap -->
-                            <!-- id -->
-                            <div class="mb-3 col-2">
-                                <label for="id" class="form-label"
-                                    >azonosító:
-                                </label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="id"
-                                    placeholder="Azonosító"
-                                    v-model="category.id"
-                                    required />
-                                <div class="invalid-feedback">
-                                    Kategória név kötelező!
-                                </div>
-                            </div>
                             <!-- kategória -->
                             <div class="mb-3 col-6">
                                 <label for="CategoryName" class="form-label"
