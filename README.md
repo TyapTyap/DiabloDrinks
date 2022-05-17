@@ -11,7 +11,7 @@ A Git lényegében lehetővé teszi több közreműködő egy adott időszakban 
 ## git letöltése/telepítése: 
 A letöltése nagyon egyszerű a linkre kattintva letölthető. a telepítőt elindítva a telepítés során egy dolgot kell kipipálni hogy a jobb klick-re jelenjen meg a git bash. 
 Egyéb mást nem kell átállítani ha készen van akkor csak bezárja és egyből tesztelheti is új fájlra rákattintva megjelenik a git bash opció.
-Az xammp letöltő (linkje:)[https://git-scm.com/]
+Az xammp letöltő linkje: https://git-scm.com/
 
 ## node js bemutatása: 
 NodeJs egy olyan futtató környezet, ami lehetőséget nyújt JavaScriptben írt programook futtatására szervereken. A JavaScriptet leginkább a kliens oldalon
