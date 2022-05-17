@@ -56,7 +56,8 @@ aminek a neve Extensions ezeket ajánlom hogy töltse le: Beautify, Live Server,
 A Visual Studio Code letöltő linkje: https://code.visualstudio.com/download
 
 ## A programom futtatása lépésekben: 
-Még mielött bármit is tenne nyissa meg az xamppot és startolja el a Mysql szervert és az Apach szervert. Ha ez meg van kövesse a következő utasításokat!
+1. Még mielött bármit is tenne nyissa meg az xamppot és startolja el a Mysql szervert és az Apach szervert. 
+2. Ha ez meg van kövesse a következő utasításokat!
 Hozzon létre a saját számítógépén egy mappát majd menjen bele. jobb click a semmibe és használja a git bash-st. majd írja be hogy "git clone https://github.com/TyapTyap/DiabloDrinks.git"
 Ezek után lehúzza az adatokat a felhőböl. Ezek után kattintson rá balclick-kel a Backend fájlra majd jobbk click-rá használja a visual studio code-ot
 ezt tegye meg a Client mappával is.
