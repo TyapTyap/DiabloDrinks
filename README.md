@@ -1,8 +1,10 @@
+# Futtató környezet
+
 A programom futtatásához szügséges néhány program.
 A Backend-hez és a Client-hez szügséges a dbforge studio, xampp, visual studio code, node js, git, Visual Studio Code.
 a letöltésükhöz itt lesznek az információk.
 
-Git bemutatása: 
+## Git bemutatása: 
 A Git egy nyílt forráskódú verziókövető rendszer. Az ilyen jellegű projektekben való együttműködést a tárházakban lévő fájlok elosztott verziókövetésével valósítja meg.
 A Git lényegében lehetővé teszi több közreműködő egy adott időszakban egy adott tárházban elvégzett munkafolyamatainak integrálását.
 
