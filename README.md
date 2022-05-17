@@ -22,7 +22,7 @@ Először töltsd le a linkre kattintva a node js-t. Válazd az LTS-t (hosszú t
 Miután kiválasztottuk az igényeinek megfelelő verziót, futtassd a telepítőt. Kövesse az utasításokat a telepítési útvonal kiválasztásához,
 és győződjön meg arról, hogy az npm csomagkezelő szolgáltatás szerepel-e a Node.js futásidejében.
 Ez legyen az alapértelmezett konfiguráció.
-A node js letölttő (linkje:)[https://nodejs.org/en/]
+A node js letölttő linkje: https://nodejs.org/en/
 
 ## Xampp bemutató: 
 Ez egy szerver szolgáltató szoftver amivel a saját számítógépen lehet saját szervert futtatni ami kiszolgál minket különböző programok lefuttatása közben.
