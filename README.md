@@ -55,6 +55,7 @@ semmit se átállítani. Vannak benne egyéb kiegészítők amiket a programomho
 aminek a neve Extensions ezeket ajánlom hogy töltse le: Beautify, Live Server, Markdown Preview, View in Browser, Mysql (delfines iconnal jelölt), Vetur
 A Visual Studio Code letöltő linkje: https://code.visualstudio.com/download
 
+# A fejlesztői környezet telepytése
 ## A programom futtatása lépésekben: 
 1. Még mielött bármit is tenne nyissa meg az xamppot és startolja el a Mysql szervert és az Apach szervert. 
 2. Ha ez meg van kövesse a következő utasításokat!
