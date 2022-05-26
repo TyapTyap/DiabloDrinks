@@ -8,18 +8,18 @@ const {
 module.exports = {
     create: (data, callBack) => {
         let queryString = `INSERT INTO user
-        (firstName,lastName,email,password,phoneNumber,permission)
+        (FirstName,LastName,Email,Password,PhoneNumber,Permission)
         VALUES
-        (?,?,?,?,?,1)
+        (?,?,?,?,?,?)
         `
         // let params = Object.values(data);
         let params= [
-            data.firstName,
-            data.lastName,
-            data.email,
-            data.password,
-            data.phoneNumber,
-            data.permisson
+            data.FirstName,
+            data.LastName,
+            data.Email,
+            data.Password,
+            data.PhoneNumber,
+            data.Permisson
         ];
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -46,17 +46,17 @@ module.exports = {
     },
     createItems: (data, callBack) => {
         let queryString = `INSERT INTO item
-        (categoryesId,itemName,image,unit,alcoholcontent,brand)
+        (CategoryId,ItemName,Image,Unit,AlcoholContent,Brand)
           VALUES
           (?,?,?,?,?,?)
         `
         let params = [
-            data.categoryesId,
-            data.itemName,
-            data.image,
-            data.unit,
-            data.alcoholcontent,
-            data.brand
+            data.CategoryId,
+            data.ItemName,
+            data.Image,
+            data.Unit,
+            data.Alcoholcontent,
+            data.Brand
         ]
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -73,9 +73,9 @@ module.exports = {
         (?,?,?)
         `
         let params = [
-            data.itemId,
+            data.ItemId,
             data.Date,
-            data.price
+            data.Price
         ]
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -92,10 +92,10 @@ module.exports = {
         (?,?,?,?)
         `
         let params = [
-            data.userId,
-            data.comment,
-            data.rating,
-            data.itemId
+            data.UserId,
+            data.Comment,
+            data.Rating,
+            data.ItemId
         ]
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -105,9 +105,9 @@ module.exports = {
             return callBack(null, results);
         });
     },
-    getUserByUserEmail: (email, callBack) => {
-        let queryString = `select * from user where email = ?`;
-        let params = [email];
+    getUserByUserEmail: (Email, callBack) => {
+        let queryString = `select * from user where Email = ?`;
+        let params = [Email];
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
                 callBack(error);
@@ -116,7 +116,7 @@ module.exports = {
         });
     },
     getItemPrices: callBack => {
-        const queryString = `SELECT * FROM itemprice`;
+        const queryString = `SELECT * FROM ItemPrice`;
         const params = [];
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -238,18 +238,18 @@ module.exports = {
         // firstName= ?, lastName = ?, gender = ?, email = ?, password = ?,phoneNumber = ?,permission = ?
         // WHERE id = ?`;
         const queryString = `UPDATE user SET
-        firstName= ?, lastName = ?, gender = ?, email = ?,phoneNumber = ?,permission = ?
+        FirstName= ?, LastName = ?, Email = ?,PhoneNumber = ?,Permission = ?
         WHERE id = ?`;
         // const params =Object.values(data);
         //const salt = genSaltSync(10);
         //const password = hashSync(data.password, salt);
         //console.log(data.password);
         const params = [
-            data.firstName,
-            data.lastName,
-            data.email,
-            data.phoneNumber,
-            data.permisson,
+            data.FirstName,
+            data.LastName,
+            data.Email,
+            data.PhoneNumber,
+            data.Permisson,
             data.id
         ];
         pool.query(queryString, params, (error, results, fields) => {
@@ -282,16 +282,16 @@ module.exports = {
     },
     updateItem: (data, callBack) => {
         const queryString = `UPDATE item set
-        categoryesId = ?, itemName = ?, Image = ?, unit = ?,alcoholcontent = ?,brand = ?
+        CategoryId = ?, ItemName = ?, Image = ?, Unit = ?,Alcoholcontent = ?,Brand = ?
       WHERE id = ?`;
         // const params = Object.values(data);
         const params = [
-            data.categoryesId,
-            data.itemName,
+            data.CategoryId,
+            data.ItemName,
             data.Image,
-            data.unit,
-            data.alcoholcontent,
-            data.brand,
+            data.Unit,
+            data.Alcoholcontent,
+            data.Brand,
             data.id
         ]
         console.log("Update category:",params);
@@ -306,13 +306,13 @@ module.exports = {
     },
     updateItemPrices: (data, callBack) => {
         const queryString = `UPDATE itemprice SET
-        itemId = ?, Date = ?, price = ?
+        ItemId = ?, Date = ?, Price = ?
       WHERE id = ?;`;
         // const params = Object.values(data);
         const params = [
-            data.itemId,
+            data.ItemId,
             data.Date,
-            data.price,
+            data.Price,
             data.id
         ]
         console.log("Update itemprice:",params);
@@ -327,14 +327,14 @@ module.exports = {
     },
     updateUserRating: (data, callBack) => {
         const queryString = `UPDATE userrating SET
-        userId = ?, comment = ?, rating = ?, itemId = ?
+        UserId = ?, Comment = ?, Rating = ?, ItemId = ?
       WHERE id = ?`;
         // const params = Object.values(data);
         const params = [
-            data.userId,
-            data.comment,
-            data.rating,
-            data.itemId,
+            data.UserId,
+            data.Comment,
+            data.Rating,
+            data.ItemId,
             data.id
         ]
         console.log("Update userrating:",params);

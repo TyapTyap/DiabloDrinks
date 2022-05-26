@@ -43,7 +43,7 @@ module.exports = {
         const body = req.body;
         const salt = genSaltSync(10);
         console.log(body);
-        body.password = hashSync(body.password, salt);
+        body.Password = hashSync(body.Password, salt);
         create(body, (err, results) => {
 
             console.log(results);
@@ -414,7 +414,7 @@ module.exports = {
     updateUsers: (req, res) => {
         const body = req.body;
         const salt = genSaltSync(10);
-        body.password = hashSync(body.password, salt);
+        body.Password = hashSync(body.Password, salt);
         updateUser(body, (err, results) => {
             if (err) {
                 return res.status(500).json({
@@ -662,7 +662,7 @@ module.exports = {
     },
     login: (req, res) => {
         const body = req.body;
-        getUserByUserEmail(body.email, (err, results) => {
+        getUserByUserEmail(body.Email, (err, results) => {
             if (err) {
                 console.log(err);
             }

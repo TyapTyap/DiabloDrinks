@@ -4,7 +4,7 @@ import Users from "../components/routes/Users.vue";
 import Login from "../components/routes/Login.vue";
 import Registration from "../components/routes/Registration.vue";
 import User from "../components/routes/User.vue";
-import Tarifa from "../components/routes/Tarifa.vue";
+import Items from "../components/routes/Items.vue";
 import CategoryData from "../components/routes/CategoryData.vue";
 import Profile from "../components/routes/Profile.vue";
 import NotFound from "../components/routes/NotFound.vue";
@@ -56,7 +56,7 @@ const routes = [{
         path: "/categorydata",
         component: CategoryData,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -68,11 +68,11 @@ const routes = [{
         }
     },
     {
-        name:"tarifa",
-        path: "/tarifa",
-        component: Tarifa,
+        name:"items",
+        path: "/items",
+        component: Items,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {

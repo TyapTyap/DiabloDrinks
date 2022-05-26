@@ -3,8 +3,8 @@ post http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "admin123456789"
+    "Email": "admin@gmail.com",
+    "Password": "admin123456789"
 }
 
 ### registration
@@ -12,12 +12,12 @@ post http://localhost:3000/api/users/registration
 Content-Type: application/json
 
 {
-     "firstName": "kisérlet",
-     "lastName": "vendeg",
-     "email": "vendeg@gmail.com",
-     "password": "vendeg",
-     "phoneNumber": "06304512350",
-     "permission": 1
+     "FirstName": "kis",
+     "LastName": "admin",
+     "Email": "kisadmin@gmail.com",
+     "Password": "admin",
+     "PhoneNumber": "06304512350",
+     "Permission": 1
 }
 
 ### Userek
@@ -36,13 +36,12 @@ put http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "firstName": "Levente",
-    "lastName": "Fülevalami",
-    "gender": "férfi",
-    "email": "admin@gmail.com",
-    "password": "admin",
-    "phoneNumber":"06301234535",
-    "permission": 1,
+    "FirstName": "kis",
+    "LastName": "admin",
+    "Email": "kisadmin@gmail.com",
+    "Password": "admin",
+    "PhoneNumber":"06304512350",
+    "Permission": 2,
     "id": 3
 }
 
@@ -64,7 +63,7 @@ Content-Type: application/json
 
 {
     "id": 15,
-     "categoryName": "valami"
+     "CategoryName": "valami"
 }
 
 ### get categorys
@@ -101,12 +100,12 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
 { 
-    "categoryesId": 1, 
-    "itemName": "árpád alma pálinka", 
-    "image": "https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM",
-    "unit": "0.5L",
-    "alcoholcontent": "40%",
-    "brand": "Árpád Pálinka"
+    "CategoryId": 1, 
+    "ItemName": "árpád alma pálinka", 
+    "Image": "https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM",
+    "Unit": "0.5L",
+    "Alcoholcontent": 40,
+    "Brand": "Árpád Pálinka"
 
  }
 
@@ -123,12 +122,12 @@ put http://localhost:3000/api/users/items
 Content-Type: application/json
 
 {
-    "categoryesId": 1,
-    "itemName": "árpád alma pálink",
+    "CategoryId": 1,
+    "ItemName": "árpád alma pálink",
     "Image": "https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM",
-    "unit": "0.5L",
-    "alcoholcontent": 40,
-    "brand":"Árpád Pálinka",
+    "Unit": "0.5L",
+    "Alcoholcontent": 40,
+    "Brand":"Árpád Pálinka",
     "id": 6
 }
 
@@ -146,9 +145,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
 { 
-    "itemId": 8, 
+    "ItemId": 8, 
     "Date": "2022-03-25 08:27:35", 
-    "price": "7999"
+    "Price": "7999"
 }
 
 ### get itemprices
@@ -164,9 +163,9 @@ put http://localhost:3000/api/users/items/itemprices
 Content-Type: application/json
 
 {
-    "itemId": 1,
+    "ItemId": 1,
     "Date": "2022-03-25",
-    "price": "9998",
+    "Price": "9998",
     "id": 2
 }
 
@@ -184,10 +183,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
 { 
-    "userId": 1, 
-    "comment": "Ez szar", 
-    "rating": 2,
-    "itemId": 5
+    "UserId": 1, 
+    "Comment": "Ez szar", 
+    "Rating": 2,
+    "ItemId": 5
  }
 
 ### get userratings
@@ -203,10 +202,10 @@ put http://localhost:3000/api/users/items/userrating
 Content-Type: application/json
 
 {
-    "userId": 1,
-    "comment": "Ez nagyon jó",
-    "rating": 10,
-    "itemId": 2,
+    "UserId": 1,
+    "Comment": "Ez nagyon jó",
+    "Rating": 10,
+    "ItemId": 2,
     "id": 2
 }
 

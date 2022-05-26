@@ -204,6 +204,13 @@
                                         >
                                     </li>
                                     <li>
+                                        <router-link
+                                            class="dropdown-item text-black"
+                                            to="/items"
+                                            >termékek adatai</router-link
+                                        >
+                                    </li>
+                                    <li>
                                         <hr class="dropdown-divider" />
                                     </li>
                                     <li>

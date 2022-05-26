@@ -1,0 +1,76 @@
+﻿CREATE DATABASE DiabloDrinks
+	CHARACTER SET utf8
+	COLLATE utf8_hungarian_ci;
+
+CREATE TABLE diablodrinks.category (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  CategoryName VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
+
+CREATE TABLE diablodrinks.item (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  CategoryId INT(11) DEFAULT NULL,
+  ItemName VARCHAR(255) DEFAULT NULL,
+  Image VARCHAR(255) DEFAULT NULL,
+  Unit VARCHAR(255) DEFAULT NULL,
+  AlcoholContent INT(11) DEFAULT NULL,
+  Brand VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
+
+ALTER TABLE diablodrinks.item 
+  ADD CONSTRAINT FK_item_category_id FOREIGN KEY (CategoryId)
+    REFERENCES diablodrinks.category(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE diablodrinks.itemprice (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  ItemId INT(11) DEFAULT NULL,
+  Date DATETIME DEFAULT NULL,
+  Price INT(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
+
+CREATE TABLE diablodrinks.itemprice (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  ItemId INT(11) DEFAULT NULL,
+  Date DATETIME DEFAULT NULL,
+  Price INT(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
+
+ALTER TABLE diablodrinks.itemprice 
+  ADD CONSTRAINT FK_itemprice_item_id FOREIGN KEY (ItemId)
+    REFERENCES diablodrinks.item(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE diablodrinks.userrating (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  UserId INT(11) DEFAULT NULL,
+  Comment VARCHAR(255) DEFAULT NULL,
+  Rating INT(11) DEFAULT NULL,
+  ItemId INT(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
+
+ALTER TABLE diablodrinks.userrating 
+  ADD CONSTRAINT FK_userrating_item_id FOREIGN KEY (ItemId)
+    REFERENCES diablodrinks.item(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE diablodrinks.userrating 
+  ADD CONSTRAINT FK_userrating_user_id FOREIGN KEY (UserId)
+    REFERENCES diablodrinks.user(id) ON DELETE CASCADE ON UPDATE CASCADE;
