@@ -37,4 +37,7 @@ export default {
   max-width: 400px;
   margin: 20px auto;
 }
+
+
+
 </style>
