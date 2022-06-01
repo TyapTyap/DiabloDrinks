@@ -6,8 +6,8 @@
                 <thead>
                     <tr>
                         <th scope="col">E-mail</th>
-                        <th scope="col">Keresztnév</th>
                         <th scope="col">Vezetéknév</th>
+                        <th scope="col">Keresztnév</th>
                         <th scope="col">Telefonszám</th>
                         <th scope="col">
                             Műveletek
@@ -28,10 +28,10 @@
                         class="static"
                         @click="onClickRow(user.id)"
                         :class="{ 'bg-primary': user.id == isValid }">
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.firstName }}</td>
-                        <td>{{ user.lastName }}</td>
-                        <td>{{ user.phoneNumber }}</td>
+                        <td>{{ user.Email }}</td>
+                        <td>{{ user.FirstName }}</td>
+                        <td>{{ user.LastName }}</td>
+                        <td>{{ user.PhoneNumber }}</td>
                         <td>
                             <!-- edit -->
                             <button
@@ -91,7 +91,7 @@
                                     class="form-control"
                                     id="email"
                                     placeholder="example@gmail.com"
-                                    v-model="user.email"
+                                    v-model="user.Email"
                                     required />
                                 <div class="invalid-feedback">
                                     E-mail kötelező!
@@ -100,33 +100,49 @@
                             <!-- Firstname -->
                             <div class="mb-3 col-6">
                                 <label for="firstName" class="form-label"
-                                    >Keresztnév:
-                                </label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="firstName"
-                                    placeholder="Keresztnév"
-                                    v-model="user.firstName"
-                                    required />
-                                <div class="invalid-feedback">
-                                    Keresztnév kötelező!
-                                </div>
-                            </div>
-                            <!-- Lastname -->
-                            <div class="mb-3 col-6">
-                                <label for="lastName" class="form-label"
                                     >Vezetéknév:
                                 </label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="lastName"
+                                    id="firstName"
                                     placeholder="Vezetéknév"
-                                    v-model="user.lastName"
+                                    v-model="user.FirstName"
                                     required />
                                 <div class="invalid-feedback">
                                     Vezetéknév kötelező!
+                                </div>
+                            </div>
+                            <!-- Lastname -->
+                            <div class="mb-3 col-6">
+                                <label for="lastName" class="form-label"
+                                    >Keresztnév:
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="lastName"
+                                    placeholder="Keresztnév"
+                                    v-model="user.LastName"
+                                    required />
+                                <div class="invalid-feedback">
+                                    Keresztnév kötelező!
+                                </div>
+                            </div>
+                             <!-- password -->
+                            <div class="mb-3 col-6">
+                                <label for="Password" class="form-label"
+                                    >Jelszó:
+                                </label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="Password"
+                                    placeholder="Jelszó"
+                                    v-model="user.Password"
+                                    required />
+                                <div class="invalid-feedback">
+                                    A jelszó kötelező!
                                 </div>
                             </div>
                             <!-- fhoneNumber -->
@@ -139,10 +155,26 @@
                                     class="form-control"
                                     id="phoneNumber"
                                     placeholder="Telefonszám"
-                                    v-model="user.phoneNumber"
+                                    v-model="user.PhoneNumber"
                                     required />
                                 <div class="invalid-feedback">
                                     Telefonszám kötelező!
+                                </div>
+                            </div>
+                            <!-- jogosúltság -->
+                            <div class="mb-3 col-6">
+                                <label for="Permission" class="form-label"
+                                    >Jogosúltság:
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="Permission"
+                                    v-model="user.Permission"
+                                    placeholder="1"
+                                    required />
+                                <div class="invalid-feedback">
+                                    Jogosúltság kötelező!
                                 </div>
                             </div>
                         </form>
@@ -153,7 +185,7 @@
                             type="button"
                             class="btn btn-secondary"
                             @click="onClickCancel()">
-                            Cancle
+                            Mégse
                         </button>
                         <button
                             type="button"
@@ -172,20 +204,20 @@
 class User {
     constructor(
         id = null,
-        firstName = null,
-        lastName = null,
-        email = null,
-        password = null,
-        phoneNumber = null,
-        permission = null
+        FirstName = null,
+        LastName = null,
+        Email = null,
+        Password = null,
+        PhoneNumber = null,
+        Permission = null
     ) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.permission = permission;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Email = Email;
+        this.Password = Password;
+        this.PhoneNumber = PhoneNumber;
+        this.Permission = Permission;
     }
 }
 
@@ -305,7 +337,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users`;
+            const url = `${this.$loginServer}/api/users/registration`;
             let data = this.user;
             delete data.id;
             fetch(url, {

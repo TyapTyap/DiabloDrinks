@@ -26,7 +26,7 @@ DELETE FROM category WHERE id = ?,
 
 #Create users
 INSERT INTO user
-  (firstName,lastName,gender,email,password,phoneNumber)
+  (FirstName,LastName,Email,PhoneNumber,Permission)
   VALUES
   (?,?,?,?,?,?);
 
@@ -41,7 +41,7 @@ SELECT * FROM user WHERE id = ?;
 
 #UpdateUser
 UPDATE user SET
-  firstName= ?, lastName = ?, gender = ?, email = ?, password = ?,phoneNumber = ?
+  FirstName= ?, LastName = ?, Email = ?,PhoneNumber = ?,Permission
   WHERE id = ?;
 
 #deleteUser
@@ -49,7 +49,7 @@ DELETE FROM user WHERE id = ?;
 
 #createUserRating
 INSERT INTO userrating
-  (userId,comment,rating,itemId)
+  (UserId,Comment,Rating,ItemId)
   VALUES
   (?,?,?,?);
 
@@ -66,7 +66,7 @@ SELECT * FROM userrating
 
 #updateUserRating
 UPDATE userrating SET
-  userId = ?, comment = ?, rating = ?, itemId = ?
+  UserId = ?, Comment = ?, Rating = ?, ItemId = ?
 WHERE id = ?;
 
 #deleteUserRating
@@ -74,7 +74,7 @@ DELETE FROM userrating WHERE id = ?;
 
 #CreateItems
 INSERT INTO item
-(categoryesId,itemName,image,unit,alcoholcontent,brand)
+(CategoryId,ItemName,Image,Unit,Alcoholcontent,Brand)
   VALUES
   (?,?,?,?,?,?);
 
@@ -87,7 +87,7 @@ SELECT * FROM item
 
 #updateItems
 UPDATE item set
-  categoryesId = 1, itemName = 'árpád alma pálinka', Image = 'https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM', unit = '0.5L',alcoholcontent = 40,brand = 'Árpád Pálinka'
+  CategoryId = 1, ItemName = 'árpád alma pálinka', Image = 'https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM', Unit = '0.5L',AlcoholContent = 40,Brand = 'Árpád Pálinka'
 WHERE id = 6;
 
 #deleteItems
@@ -95,7 +95,7 @@ DELETE FROM item WHERE id = ?;
 
 #createItemPrices
 INSERT INTO itemprice
-  (itemId,Date,price)
+  (ItemId,Date,Price)
   VALUES
   (?,?,?);
 
@@ -107,7 +107,7 @@ SELECT * FROM itemprice WHERE id = ?;
 
 #updateItemPrices
 UPDATE itemprice SET
-  itemId = ?, Date = ?, price = ?
+  ItemId = ?, Date = ?, Price = ?
 WHERE id = ?;
 
 #deleteItemPrices

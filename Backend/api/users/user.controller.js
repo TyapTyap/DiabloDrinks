@@ -674,9 +674,9 @@ module.exports = {
                     data: {}
                 });
             }
-            const result = compareSync(body.password, results.password);
+            const result = compareSync(body.Password, results.Password);
             if (result) {
-                results.password = undefined;
+                results.Password = undefined;
                 const jsontoken = sign({
                     result: results
                 }, "qwe1234", {

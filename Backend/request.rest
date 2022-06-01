@@ -3,8 +3,8 @@ post http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "Email": "admin@gmail.com",
-    "Password": "admin123456789"
+    "Email": "kisadmin@gmail.com",
+    "Password": "admin"
 }
 
 ### registration
@@ -12,12 +12,12 @@ post http://localhost:3000/api/users/registration
 Content-Type: application/json
 
 {
-     "FirstName": "kis",
-     "LastName": "admin",
-     "Email": "kisadmin@gmail.com",
-     "Password": "admin",
-     "PhoneNumber": "06304512350",
-     "Permission": 1
+     "FirstName": "teszt",
+     "LastName": "vendeg",
+     "Email": "vendeg@gmail.com",
+     "Password": "vendeg",
+     "PhoneNumber": "06502350",
+     "Permission": "1"
 }
 
 ### Userek
@@ -41,8 +41,8 @@ Content-Type: application/json
     "Email": "kisadmin@gmail.com",
     "Password": "admin",
     "PhoneNumber":"06304512350",
-    "Permission": 2,
-    "id": 3
+    "Permission": ,
+    "id": 4
 }
 
 ### Delete user
@@ -50,7 +50,7 @@ delete http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "id": 24
+    "id": 1
 }
 
 
@@ -62,8 +62,7 @@ post http://localhost:3000/api/users/category
 Content-Type: application/json
 
 {
-    "id": 15,
-     "CategoryName": "valami"
+     "CategoryName": "Pálinka"
 }
 
 ### get categorys
@@ -123,12 +122,12 @@ Content-Type: application/json
 
 {
     "CategoryId": 1,
-    "ItemName": "árpád alma pálink",
-    "Image": "https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM",
+    "ItemName": "árpád körte pálink",
+    "Image": "https://www.kozertplusz.hu/wp-content/uploads/2021/09/Arpad-Silver-Vilmoskorte-1800x1800.jpg",
     "Unit": "0.5L",
     "Alcoholcontent": 40,
     "Brand":"Árpád Pálinka",
-    "id": 6
+    "id": 3
 }
 
 ### Delete item

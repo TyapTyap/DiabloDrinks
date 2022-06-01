@@ -55,7 +55,7 @@ module.exports = {
             data.ItemName,
             data.Image,
             data.Unit,
-            data.Alcoholcontent,
+            data.AlcoholContent,
             data.Brand
         ]
         pool.query(queryString, params, (error, results, fields) => {
@@ -238,7 +238,7 @@ module.exports = {
         // firstName= ?, lastName = ?, gender = ?, email = ?, password = ?,phoneNumber = ?,permission = ?
         // WHERE id = ?`;
         const queryString = `UPDATE user SET
-        FirstName= ?, LastName = ?, Email = ?,PhoneNumber = ?,Permission = ?
+        FirstName= ?, LastName = ?, Password = Password, Email = ?,PhoneNumber = ?,Permission = ?
         WHERE id = ?`;
         // const params =Object.values(data);
         //const salt = genSaltSync(10);
@@ -248,6 +248,7 @@ module.exports = {
             data.FirstName,
             data.LastName,
             data.Email,
+            data.Password,
             data.PhoneNumber,
             data.Permisson,
             data.id

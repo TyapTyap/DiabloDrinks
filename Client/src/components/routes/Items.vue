@@ -6,6 +6,9 @@
                 <thead>
                     <tr>
                         <th scope="col">Termék neve</th>
+                        <th scope="col">Kiszerelése</th>
+                        <th scope="col">Alkohol tartalma</th>
+                        <th scope="col">Márkája</th>
                         <th scope="col">
                             Műveletek
                             <!-- new -->
@@ -20,18 +23,20 @@
                 </thead>
                 <tbody>
                     <tr
-                        v-for="(item, index) in items"
-                        :key="index"
+                        v-for="(items,index) in item" :key="index"
                         class="static"
-                        @click="onClickRow(item.id)"
-                        :class="{ 'bg-primary': item.id == isValid }">
-                        <td>{{ item.itemName }}</td>
+                        @click="onClickRow(items.id)"
+                        :class="{ 'bg-primary': items.id == isValid }">
+                        <td>{{ items.ItemName }}</td>
+                        <td>{{ items.Unit }}</td>
+                        <td>{{ items.AlcoholContent }}</td>
+                        <td>{{ items.Brand }}</td>
                         <td>
                             <!-- edit -->
                             <button
                                 type="button"
                                 class="btn btn-online-warning ms-1 btn-sm"
-                                @click="onClickEdit(item.id)">
+                                @click="onClickEdit(items.id)">
                                 <i class="bi bi-pencil"></i>
                             </button>
 
@@ -39,7 +44,7 @@
                             <button
                                 type="button"
                                 class="btn btn-online-danger ms-1 btn-sm"
-                                @click="onClickDelete(item.id)">
+                                @click="onClickDelete(items.id)">
                                 <i class="bi bi-archive"></i>
                             </button>
                         </td>
@@ -75,20 +80,68 @@
                     <div class="modal-body">
                         <form class="row g-3 needs-validation" novalidate>
                             <!-- űrlap -->
-                            <!-- kategória -->
+                            <!-- termék neve -->
                             <div class="mb-3 col-6">
-                                <label for="CategoryName" class="form-label"
-                                    >Kategória név:
+                                <label for="ItemName" class="form-label"
+                                    >Termék neve:
                                 </label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="CategoryName"
-                                    placeholder="Kategória név"
-                                    v-model="category.CategoryName"
+                                    id="ItemName"
+                                    placeholder="Termék neve"
+                                    v-model="items.ItemName"
                                     required />
                                 <div class="invalid-feedback">
-                                    Kategória név kötelező!
+                                    Termék neve kötelező!
+                                </div>
+                            </div>
+                            <!-- kiszerlése -->
+                            <div class="mb-3 col-6">
+                                <label for="Unit" class="form-label"
+                                    >Kiszerelése:
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="Unit"
+                                    placeholder="Kiszerelése"
+                                    v-model="items.Unit"
+                                    required />
+                                <div class="invalid-feedback">
+                                    A kiszerelés kötelező!
+                                </div>
+                            </div>
+                            <!-- alkohol tartalma -->
+                            <div class="mb-3 col-6">
+                                <label for="AlcoholContent" class="form-label"
+                                    >Alkohol tartalma:
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="AlcoholContent"
+                                    placeholder="Alkohol tartalma"
+                                    v-model="items.AlcoholContent"
+                                    required />
+                                <div class="invalid-feedback">
+                                    Az alkohol tartalom kötelező!
+                                </div>
+                            </div>
+                            <!-- márkája -->
+                            <div class="mb-3 col-6">
+                                <label for="Brand" class="form-label"
+                                    >Márkája:
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="Brand"
+                                    placeholder="Márkája"
+                                    v-model="items.Brand"
+                                    required />
+                                <div class="invalid-feedback">
+                                    Márka kötelező!
                                 </div>
                             </div>
                         </form>
@@ -118,18 +171,20 @@
 class Items {
     constructor(
         id = null,
-        itemName = null,
+        CategoryId = null,
+        ItemName = null,
         Image = null,
-        unit = null,
-        alcoholcontent = null,
-        brand = null
+        Unit = null,
+        AlcoholContent = null,
+        Brand = null
     ) {
         this.id = id;
-        this.itemName = itemName;
+        this.CategoryId = CategoryId;
+        this.ItemName = ItemName;
         this.Image = Image;
-        this.unit = unit;
-        this.alcoholcontent = alcoholcontent;
-        this.brand = brand;
+        this.Unit = Unit;
+        this.AlcoholContent = AlcoholContent;
+        this.Brand = Brand;
     }
 }
 
@@ -139,10 +194,10 @@ export default {
     name: "Items",
     data() {
         return {
-            itemsArray: [],
+            items: [],
             state: "view",
             stateTitle: null,
-            items: new Items(),
+            item: new Items(),
             form: null,
             isValid: null,
         };
@@ -162,7 +217,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category/categories`;
+            const url = `${this.$loginServer}/api/users/items/itemList`;
             fetch(url, {
                 method: "GET",
                 headers: headers,
@@ -170,19 +225,18 @@ export default {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("Success:", data.data);
-                    this.items = data.data;
+                    this.item = data.data;
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    this.itemsArray = [];
+                    this.items = [];
                 });
         },
         GetItemsById(id) {
             let headers = new Headers();
-
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category/categories/${id}`;
+            const url = `${this.$loginServer}/api/users/items/itemList/${id}`;
 
             fetch(url, {
                 method: "GET",
@@ -191,11 +245,11 @@ export default {
                 .then((response) => response.json())
                 .then((data,) => {
                     console.log("Success:", data.data);
-                    this.items = data.data;
+                    this.item = data.data;
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    this.itemsArray = [];
+                    this.items = [];
                 });
         },
         putItems() {
@@ -203,8 +257,8 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category`;
-            let data = this.category;
+            const url = `${this.$loginServer}/api/users/items`;
+            let data = this.item;
             fetch(url, {
                 method: "PUT",
                 headers: headers,
@@ -224,7 +278,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category`;
+            const url = `${this.$loginServer}/api/users/items`;
             let data = {
                 id: id,
             };
@@ -247,8 +301,8 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category`;
-            let data = this.category;
+            const url = `${this.$loginServer}/api/users/items`;
+            let data = this.item;
             delete data.id;
             fetch(url, {
                 method: "POST",
@@ -267,7 +321,7 @@ export default {
         onClickNew() {
             this.state = "new";
             this.stateTitle = "Új Kategória";
-            this.user = new Items();
+            this.item = new Items();
             this.modal.show();
         },
         onClickEdit(id) {

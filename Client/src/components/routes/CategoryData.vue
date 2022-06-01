@@ -99,7 +99,7 @@
                             type="button"
                             class="btn btn-secondary"
                             @click="onClickCancel()">
-                            Cancle
+                            Mégse
                         </button>
                         <button
                             type="button"

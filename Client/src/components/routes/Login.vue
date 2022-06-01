@@ -9,7 +9,7 @@
                 class="form-control"
                 id="email"
                 placeholder="E-mail cím"
-                v-model="loginData.email" />
+                v-model="loginData.Email" />
         </div>
             <label for="password" class="form-label">Jelszó:</label>
         <div class="mb-3">
@@ -19,7 +19,7 @@
                     class="form-control"
                     id="password"
                     placeholder="Jelszó"
-                    v-model="loginData.password" />
+                    v-model="loginData.Password" />
             </div>
         </div>
         </div>
@@ -38,8 +38,8 @@ export default {
     data() {
         return {
             loginData: {
-                email: "admin@gmail.com",
-                password: "admin",
+                Email: "kisadmin@gmail.com",
+                Password: "admin",
             },
             noSuccess: false,
         };

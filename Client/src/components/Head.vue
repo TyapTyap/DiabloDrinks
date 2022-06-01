@@ -230,23 +230,24 @@
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    {{ $root.$data.user.firstName }}
+                                    {{ $root.$data.user.LastName }}
                                 </a>
                                 <ul
                                     class="dropdown-menu bg-secondary"
                                     aria-labelledby="offcanvasNavbarDropdown">
-                                    <li @click.prevent="onClicklogout()">
-                                        <router-link
-                                            class="dropdown-item text-black"
-                                            to="/login"
-                                            >Kilépés</router-link
-                                        >
-                                    </li>
+                                    
                                     <li>
                                         <router-link
                                             class="dropdown-item text-black"
                                             to="/profile"
                                             >Profil</router-link
+                                        >
+                                    </li>
+                                    <li @click.prevent="onClicklogout()">
+                                        <router-link
+                                            class="dropdown-item text-black"
+                                            to="/login"
+                                            >Kilépés</router-link
                                         >
                                     </li>
                                 </ul>
@@ -262,19 +263,19 @@
 <script>
 class User {
     constructor(
-        firstName = null,
-        lastName = null,
-        email = null,
-        password = null,
-        phoneNumber = null,
-        permission = null
+        FirstName = null,
+        LastName = null,
+        Email = null,
+        Password = null,
+        PhoneNumber = null,
+        Permission = null
     ) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.permission = permission;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Email = Email;
+        this.Password = Password;
+        this.PhoneNumber = PhoneNumber;
+        this.Permission = Permission;
     }
 }
 

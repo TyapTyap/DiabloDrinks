@@ -20,12 +20,12 @@
     DELETE item FROM item;
 DELETE itemprice FROM itemprice;
 INSERT INTO user
-  (firstName,lastName,gender,email,password,phoneNumber,permission)
+  (FirstName,LastName,Email,Password,phoneNumber,permission)
   VALUES
-  ('Füle','Levente','Férfi','admin@gmail.com','admin','06305596631','1');
+  ('Füle','Levente','admin@gmail.com','admin','06305596631','1');
 
 INSERT INTO item
-  (categoryesId,itemName,Image,unit,alcoholcontent,brand)
+  (CategoryId,ItemName,Image,Unit,AlcoholContent,Brand)
   VALUES
   (1,'árpád alma pálinka','https://www.google.com/search?q=%C3%A1rp%C3%A1d+alma+p%C3%A1linka&hl=hu&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiz_4u1obb2AhWQyqQKHebKBWcQ_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=vRdWbTfQ_OAhSM','0.5L','40%','Árpád Pálinka'),
   (2,'kontyos édes meggybor','https://www.google.com/search?q=KONTYOS+%C3%89DES+MEGGYBOR&tbm=isch&ved=2ahUKEwjg5um1obb2AhXWuioKHTmgAfEQ2-cCegQIABAA&oq=KONTYOS+%C3%89DES+MEGGYBOR&gs_lcp=CgNpbWcQA1DpBVjpBWCYDGgAcAB4AIABZogBwQGSAQMxLjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=4CknYuD2ENb1qgG5wIaIDw&bih=979&biw=1920&hl=hu#imgrc=W2xc626DFIZ8gM','0.75L','13%','Konytyos Pincészet'),
@@ -37,7 +37,7 @@ INSERT INTO item
   (8,'Roku Gin','https://www.google.com/search?q=roku+gin&rlz=1C1GCEA_enHU951HU951&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiJj-yFoLb2AhWkTeUKHYWeAZ4Q_AUoAXoECAEQAw&biw=1920&bih=979&dpr=1#imgrc=IwOpal-lcRWl2M','0,7L','43%','Suntory');
 
 INSERT INTO itemprice
-  (itemId,Date,price)
+  (ItemId,Date,Price)
   VALUES
   (1,'2022.03.08','7790 Ft'),
   (2,'2022.03.08','2390 Ft'),

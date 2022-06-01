@@ -1,11 +1,11 @@
 <template>
   <div class="my-border">
 		<h1>Profile</h1>
-    <p>Keresztnév: {{$root.$data.user.firstName}}</p>
-        <p>Vezetéknév: {{$root.$data.user.lastName}}</p>
-        <p>E-mail: {{$root.$data.user.email}}</p>
-        <p>Telefonszám: {{$root.$data.user.phoneNumber}}</p>
-        <p>Jogosultság: {{$root.$data.user.permission}}</p>
+    <p>Keresztnév: {{$root.$data.user.FirstName}}</p>
+        <p>Vezetéknév: {{$root.$data.user.LastName}}</p>
+        <p>E-mail: {{$root.$data.user.Email}}</p>
+        <p>Telefonszám: {{$root.$data.user.PhoneNumber}}</p>
+        <p>Jogosultság: {{$root.$data.user.Permission}}</p>
   </div>
 </template>
 
