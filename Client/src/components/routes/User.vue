@@ -337,7 +337,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/registration`;
+            const url = `${this.$loginServer}/api/registration`;
             let data = this.user;
             delete data.id;
             fetch(url, {

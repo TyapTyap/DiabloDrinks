@@ -2,23 +2,18 @@
     <div>
         <!--#region kártya -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
+            <div class="col" >
                 <div class="card kártya1" style="width: 18rem">
-                    <img
-                        src="../images/arpad-alma-palinka-dd.jpg"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        class="card-img-top arpadvilmospalnka"
-                        alt=""
-                        title="" />
+                    <p>kép</p>
                     <div class="card-body">
-                        <p>Cikkszám: {id}</p>
                         <h5
                             class="card-title cím"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             <strong
-                                >Árpád vilmoskörte pálinka<br />[0.5L|40%]</strong
+                                >{Itemlink.ItemName}
+                                <br />
+                                {Itemlink.Unit}|{Itemlink.AlcoholContent}</strong
                             >
                         </h5>
                         <hr style="width: 100px; margin-left: 30%" />
@@ -29,7 +24,7 @@
                             >Rendelhető</span
                         >
                         <hr style="width: 100px; margin-left: 30%" />
-                        <p>{ItemPrice}</p>
+                        <p>{Itemlink.Price}</p>
                         <button type="button" class="btn btn-danger">
                             Kosárba
                         </button>
@@ -49,7 +44,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">
-                            Árpád Vilmoskörte pálinka
+                            cím
                         </h5>
                         <button
                             type="button"
@@ -111,12 +106,14 @@
 </template>
 
 <script>
-class Item {
+class Itemlink {
     constructor(
         id = null,
+        ItemPriceId = null,
         CategoryId = null,
         ItemName = null,
         Image = null,
+        Price = null,
         Unit = null,
         AlcoholContent = null,
         Brand = null
@@ -128,28 +125,34 @@ class Item {
         this.Unit = Unit;
         this.AlcoholContent = AlcoholContent;
         this.Brand = Brand;
+        this.Price = Price;
+        this.ItemPriceId = ItemPriceId;
     }
 }
 export default {
     name: "Fooldal",
     data() {
         return {
-            items: [],
+            itemLinks: [],
+            itemsABC: [],
+            itemlink: new Itemlink(),
             state: "view",
             stateTitle: null,
-            item: new Item(),
+            itemId: null,
+            embed: null,
         };
     },
     created() {
-        this.GetItems();
+        this.GetItemsABC();
+        this.getLinksToCard();
     },
     methods: {
-        GetItems() {
+        GetItemsABC() {
             let headers = new Headers();
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/items/itemList`;
+            const url = `${this.$loginServer}/api/itemABC`;
             fetch(url, {
                 method: "GET",
                 headers: headers,
@@ -157,11 +160,29 @@ export default {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("Success:", data.data);
-                    this.item = data.data;
+                    this.itemsABC = data.data;
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    this.items = [];
+                    this.itemsABC = [];
+                });
+        },
+        getLinksToCard() {
+            let headers = new Headers();
+            headers.append("Content-Type", "application/json");
+            headers.append("Authorization", "Bearer " + this.$root.$data.token);
+            const url = `${this.$loginServer}/api/getlink`;
+            fetch(url, {
+                method: "GET",
+                headers: headers,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    this.itemlinks = data.data;
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    this.itemlinks = [];
                 });
         },
     },

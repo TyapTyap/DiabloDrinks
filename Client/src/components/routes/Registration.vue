@@ -95,7 +95,7 @@ export default {
     },
     methods: {
         onClickRegistration() {
-            const url = `${this.$loginServer}/api/users/registration`;
+            const url = `${this.$loginServer}/api/registration`;
             let headers = new Headers();
             headers.append("Content-Type", "application/json");
             fetch(url, {

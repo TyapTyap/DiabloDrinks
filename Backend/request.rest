@@ -1,5 +1,5 @@
 ###login
-post http://localhost:3000/api/users/login
+post http://localhost:3000/api/login
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### registration
-post http://localhost:3000/api/users/registration
+post http://localhost:3000/api/registration
 Content-Type: application/json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/json
 
 
 ### create categorys
-post http://localhost:3000/api/users/category
+post http://localhost:3000/api/category
 Content-Type: application/json
 
 {
@@ -66,17 +66,17 @@ Content-Type: application/json
 }
 
 ### get categorys
-get http://localhost:3000/api/users/category/categories
+get http://localhost:3000/api/category
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTEyNTYzOCwiZXhwIjoxNjQ1MTI5MjM4fQ.62U_xM_tXvohkZ1TlZqxSLLil5Y1dTbfmPgB2JYUlsQ
 
 
 ### Egy category
-get http://localhost:3000/api/users/category/categories/2
+get http://localhost:3000/api/category/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
 
 ### category módosítása
-put http://localhost:3000/api/users/category
+put http://localhost:3000/api/category
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTEyNTYzOCwiZXhwIjoxNjQ1MTI5MjM4fQ.62U_xM_tXvohkZ1TlZqxSLLil5Y1dTbfmPgB2JYUlsQ
 
@@ -86,7 +86,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiO
 }
 
 ### Delete category
-delete http://localhost:3000/api/users/category
+delete http://localhost:3000/api/category
 Content-Type: application/json
 
 {
@@ -94,7 +94,7 @@ Content-Type: application/json
 }
 
 ### Items hozzáadása
-post http://localhost:3000/api/users/items
+post http://localhost:3000/api/items
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
@@ -109,15 +109,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiO
  }
 
 ### get items
-get http://localhost:3000/api/users/items/itemList
+get http://localhost:3000/api/items
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
 ### Egy Item
-get http://localhost:3000/api/users/items/itemList/6
+get http://localhost:3000/api/items/6
 Authorization: Bearer
 
+### itemek ABC sorrendben
+get http://localhost:3000/api/itemABC
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjMsIm5hbWUiOiJOYWd5IFPDoW5kb3IiLCJlbWFpbCI6InNhbmRvckBnbWFpbC5jb20iLCJwZXJtaXNzaW9uIjoxfSwiaWF0IjoxNjQ4NzI0NTcxLCJleHAiOjE2NDg3MjgxNzF9.twd3PxUOjyi8eIoLN_d8hM0BrS_Xmst7pZIBxSflEeQ
+
+
 ### item módosítása
-put http://localhost:3000/api/users/items
+put http://localhost:3000/api/items
 Content-Type: application/json
 
 {
@@ -131,7 +136,7 @@ Content-Type: application/json
 }
 
 ### Delete item
-delete http://localhost:3000/api/users/items
+delete http://localhost:3000/api/items
 Content-Type: application/json
 
 {
@@ -139,26 +144,26 @@ Content-Type: application/json
 }
 
 ### Item prices hozzáadása
-post http://localhost:3000/api/users/itemprices
+post http://localhost:3000/api/itemprices
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
 { 
-    "ItemId": 8, 
+    "ItemId": 3, 
     "Date": "2022-03-25 08:27:35", 
-    "Price": "7999"
+    "Price": "9999"
 }
 
 ### get itemprices
-get http://localhost:3000/api/users/items/itemprices
+get http://localhost:3000/api/itemprices
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTEyNTYzOCwiZXhwIjoxNjQ1MTI5MjM4fQ.62U_xM_tXvohkZ1TlZqxSLLil5Y1dTbfmPgB2JYUlsQ
 
 ### Egy itemprice
-get http://localhost:3000/api/users/items/itemprices/2"
+get http://localhost:3000/api/itemprices/2"
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NDMxNTE5NCwiZXhwIjoxNjQ0MzE4Nzk0fQ.q2ih8UiVs51Pa3UEc908O6tLt5Upl9NOlidEmQSksMQ
 
 ### price módosítása
-put http://localhost:3000/api/users/items/itemprices
+put http://localhost:3000/api/itemprices
 Content-Type: application/json
 
 {
@@ -169,7 +174,7 @@ Content-Type: application/json
 }
 
 ### Delete itemprice
-delete http://localhost:3000/api/users/itemprices
+delete http://localhost:3000/api/itemprices
 Content-Type: application/json
 
 {
@@ -177,7 +182,7 @@ Content-Type: application/json
 }
 
 ### userrating hozzáadása
-post http://localhost:3000/api/users/userrating
+post http://localhost:3000/api/userrating
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
 
@@ -189,15 +194,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiO
  }
 
 ### get userratings
-get http://localhost:3000/api/users/items/userrating
+get http://localhost:3000/api/userrating
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTEyNTYzOCwiZXhwIjoxNjQ1MTI5MjM4fQ.62U_xM_tXvohkZ1TlZqxSLLil5Y1dTbfmPgB2JYUlsQ
 
 ### Egy userrating
-get http://localhost:3000/api/users/items/userrating/2"
+get http://localhost:3000/api/userrating/2"
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NDMxNTE5NCwiZXhwIjoxNjQ0MzE4Nzk0fQ.q2ih8UiVs51Pa3UEc908O6tLt5Upl9NOlidEmQSksMQ
 
 ### userrating módosítása
-put http://localhost:3000/api/users/items/userrating
+put http://localhost:3000/api/userrating
 Content-Type: application/json
 
 {
@@ -209,9 +214,12 @@ Content-Type: application/json
 }
 
 ### Delete userrating
-delete http://localhost:3000/api/users/items/userrating
+delete http://localhost:3000/api/userrating
 Content-Type: application/json
 
 {
     "id": 1
 }
+
+### összes adat egy kártyához
+get http://localhost:3000/api/getlink

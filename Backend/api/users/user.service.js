@@ -170,6 +170,18 @@ module.exports = {
             return callBack(null, results[0]);
         });
     },
+    getItemABC: callBack => {
+        const queryString = `select ItemName, id from item
+        order by ItemName`;
+        const params = [];
+        pool.query(queryString, params, (error, results, fields) => {
+            if (error) {
+                return callBack(error);
+
+            }
+            return callBack(null, results);
+        });
+    },
     getUserByUserId: (id, callBack) => {
         const queryString = `SELECT * FROM user WHERE id = ?`;
         const params = [id];
@@ -394,6 +406,20 @@ module.exports = {
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
                 return callBack(error);
+            }
+            return callBack(null, results);
+        });
+    },
+    getLinksToCard: callBack => {
+        const queryString = `Select i.id id, i.ItemName, i.CategoryId CategoryId, c.CategoryName, i.AlcoholContent, i.Unit ,i.Brand, ip.id ItemPriceId, ip.Price, i.Image from item i
+        Inner join Category c on i.CategoryId = c.id
+        Inner join itemprice ip on ip.Itemid = i.id
+        Order by c.CategoryName`;
+        const params = [];
+        pool.query(queryString, params, (error, results, fields) => {
+            if (error) {
+                return callBack(error);
+
             }
             return callBack(null, results);
         });

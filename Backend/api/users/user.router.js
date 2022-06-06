@@ -13,6 +13,7 @@ const {
      createItems,
      getItems,
      getItemById,
+     getItemABC,
      updateItem,
      deleteItem,
      createitemPrices,
@@ -25,45 +26,44 @@ const {
      getUserRatingById,
      updateUserRating,
      deleteUserRating,
+     getLinksToCard
+
 } = require("./user.controller.js")
 const router = require("express").Router();
 const {checkToken} = require("../../auth/token_validation");
 
- router.post("/users/registration", checkToken, createUser);
+ router.post("/registration", checkToken, createUser);
  router.get("/users/", checkToken, getUsers);
  router.get("/users/:id", checkToken, getUserByUserId);
  router.put("/users/", checkToken, updateUsers);
  router.delete("/users/", checkToken, deleteUser);
- router.post("/users/login", login);
+ router.post("/login", login);
 
-router.post("/users/category", checkToken, createCategory);
-router.get("/users/category/categories", checkToken, getCategories);
-router.get("/users/category/categories/:id", checkToken, getCategoryById);
-router.put("/users/category", checkToken, updateCategory);
-router.delete("/users/category", checkToken, deleteCategory);
+router.post("/category", checkToken, createCategory);
+router.get("/category", checkToken, getCategories);
+router.get("/category:id", checkToken, getCategoryById);
+router.put("/category", checkToken, updateCategory);
+router.delete("/category", checkToken, deleteCategory);
  
-router.post("/users/items", checkToken, createItems);
-router.get("/users/items/itemList", checkToken, getItems);
-router.get("/users/items/itemList/:id", checkToken, getItemById);
-router.put("/users/items", checkToken, updateItem);
-router.delete("/users/items", checkToken, deleteItem);
+router.post("/items", checkToken, createItems);
+router.get("/items", checkToken, getItems);
+router.get("/items/:id", checkToken, getItemById);
+router.put("/items", checkToken, updateItem);
+router.delete("/items", checkToken, deleteItem);
 
-router.post("/users/itemprices", checkToken, createitemPrices);
-router.get("/users/items/itemprices", checkToken, getItemPrices);
-router.get("/users/items/itemprices/:id", checkToken, getItemPriceById);
-router.put("/users/items/itemprices", checkToken, updateItemPrices);
-router.delete("/users/itemprices", checkToken, deleteItemPrice);
+router.post("/itemprices", checkToken, createitemPrices);
+router.get("/itemprices", checkToken, getItemPrices);
+router.get("/itemprices/:id", checkToken, getItemPriceById);
+router.put("/itemprices", checkToken, updateItemPrices);
+router.get("/itemABC", checkToken, getItemABC)
+router.delete("/itemprices", checkToken, deleteItemPrice);
 
-router.post("/users/userrating", checkToken, createuserrating);
-router.get("/users/items/userrating", checkToken, getUserRateing);
-router.get("/users/items/userrating/:id", checkToken, getUserRatingById);
-router.put("/users/items/userrating", checkToken, updateUserRating);
-router.delete("/users/items/userrating", checkToken, deleteUserRating);
-// app.get("/api", (req, res)=>{
-//     res.json({
-//         success: 1,
-//         message: "this is rest api working"
-//     });
-// });
+router.post("/userrating", checkToken, createuserrating);
+router.get("/userrating", checkToken, getUserRateing);
+router.get("/userrating/:id", checkToken, getUserRatingById);
+router.put("/userrating", checkToken, updateUserRating);
+router.delete("/userrating", checkToken, deleteUserRating);
+
+router.get("/getlink", checkToken, getLinksToCard);
 
 module.exports = router;

@@ -13,6 +13,7 @@ const {
     createItems,
     getItems,
     getItemById,
+    getItemABC,
     updateItem,
     deleteItem,
     createitemPrices,
@@ -24,7 +25,9 @@ const {
     getUserRateing,
     getUserRatingById,
     updateUserRating,
-    deleteUserRating
+    deleteUserRating,
+    getLinksToCard,
+
 } = require("./user.service.js");
 
 const {
@@ -319,6 +322,29 @@ module.exports = {
     },
     getItems: (req, res) => {
         getItems((err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    success: -1,
+                    message: "Server error",
+                    data: []
+                });
+            }
+            if (results.length == 0) {
+                return res.status(200).json({
+                    success: 0,
+                    message: "No records",
+                    data: results
+                });
+            }
+            return res.status(200).json({
+                success: 1,
+                message: "Get successfully",
+                data: results
+            });
+        });
+    },
+    getItemABC: (req, res) => {
+        getItemABC((err, results) => {
             if (err) {
                 return res.status(500).json({
                     success: -1,
@@ -697,7 +723,30 @@ module.exports = {
                 });
             }
         });
-    }
+    },
+    getLinksToCard: (req, res) => {
+        getLinksToCard((err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    success: -1,
+                    message: "Server error",
+                    data: []
+                });
+            }
+            if (results.length == 0) {
+                return res.status(200).json({
+                    success: 0,
+                    message: "No records",
+                    data: results
+                });
+            }
+            return res.status(200).json({
+                success: 1,
+                message: "Get successfully",
+                data: results
+            });
+        });
+    },
 
     //#endregion
 }

@@ -154,7 +154,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category/categories`;
+            const url = `${this.$loginServer}/api/category`;
             fetch(url, {
                 method: "GET",
                 headers: headers,
@@ -174,7 +174,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category/categories/${id}`;
+            const url = `${this.$loginServer}/api/category/${id}`;
 
             fetch(url, {
                 method: "GET",
@@ -195,7 +195,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category`;
+            const url = `${this.$loginServer}/api/category`;
             let data = this.category;
             fetch(url, {
                 method: "PUT",
@@ -216,7 +216,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category`;
+            const url = `${this.$loginServer}/api/category`;
             let data = {
                 id: id,
             };
@@ -239,7 +239,7 @@ export default {
 
             headers.append("Content-Type", "application/json");
             headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/users/category`;
+            const url = `${this.$loginServer}/api/category`;
             let data = this.category;
             delete data.id;
             fetch(url, {

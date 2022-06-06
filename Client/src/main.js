@@ -51,19 +51,10 @@ let x = new Vue({
     render: h => h(App),
 }).$mount("#app");
 
-//Minden route beírásakor lefut, mielőtt ráugrana az adott oldalra
-//Ha kiadjuk a next()-et, akkor továbbengedi
 router.beforeEach((to, from, next) => {
-    //A to tartalmazza, hogy mit írtunk be
-    //to.mached gyűjtemény azon rekordok, amik a routes tömb-ben megfellenek az útvonalnak.
- 
     let loggedIn = x.$data.token
-    //A megtalált útvonalhoz tratozó route objektumban meta.requiresAuth true-e
-    //Azaz bejelnekezéshez kötött menüpont-e
-    console.log("beírtam:",to);
+
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        // this route requires auth, check if logged in
-        // if not, redirect to login page.
         if (!loggedIn) {
             next({
                 path: '/login/'
@@ -72,6 +63,6 @@ router.beforeEach((to, from, next) => {
             next()
         }
     } else {
-        next() // make sure to always call next()!
+        next()
     }
 });
